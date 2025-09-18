@@ -21,6 +21,7 @@ chmod +x tdns_qps_monitor.py tdns_qps_top.py
 ```
 
 # Proses log terbaru di /etc/dns/logs, summary sekali lalu keluar
+``` bash
 python3 tdns_qps_monitor.py \
   --logdir /etc/dns/logs \
   --pattern "*.log" \
@@ -28,8 +29,9 @@ python3 tdns_qps_monitor.py \
   --from-beginning \
   --top 20 \
   --output-csv qpm.csv
-
+```
 # Mode live, refresh layar tiap 2 detik, window analisis 60 detik
+``` bash
 python3 tdns_qps_top.py \
   --logdir /etc/dns/logs \
   --pattern "*.log" \
@@ -40,7 +42,7 @@ python3 tdns_qps_top.py \
   --alert-qps 200 \
   --alert-nxdomain 60 \
   --alert-refused 20
-  
+```
 ## Fitur 
 - Hitung QPM (queries per minute) per IP
 - Threshold alert --qpm-threshold
